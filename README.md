@@ -25,19 +25,55 @@ Vectors represent data points, feature sets, or results in many data analysis ta
 ```
 
 - **Dot Product:** Measure the similarity between two vectors.
-  ```python
+```python
 dot_product = np.dot(v1, v2)  # 1*4 + 2*5 + 3*6 = 32
 print(dot_product)
 ```
-- ** Norm (Magnitude):** Calculate the length of a vector.
-
-  ```python
+- **Norm (Magnitude):** Calculate the length of a vector.
+```python
 norm_v1 = np.linalg.norm(v1)  # √(1^2 + 2^2 + 3^2) = √14
 print(norm_v1)
 ```
 ### Application in Data Analysis:
-Feature Representation: Data points are often represented as vectors.
-Similarity Calculation: Dot product is commonly used in calculating the similarity between data points (e.g., cosine similarity).
+- Feature Representation: Data points are often represented as vectors.
+- Similarity Calculation: Dot product is commonly used in calculating the similarity between data points (e.g., cosine similarity).
+
+## 2. Matrices
+Matrices are used to store data and perform transformations. Each row typically represents a data point, and each column represents a feature.
+
+### **Operations:**
+- **Matrix Multiplication:** Multiply two matrices (e.g., dataset by weights in machine learning).
+
+```python
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+product = np.dot(A, B)  # Multiply matrices A and B
+print(product)
+```
+- **Transpose:** Swap the rows and columns of a matrix.
+
+```python
+transpose_A = A.T  # [[1, 3], [2, 4]]
+print(transpose_A)
+```
+- **Inverse:** Solve systems of linear equations (if the matrix is invertible).
+
+```python
+A_inv = np.linalg.inv(A)  # Compute the inverse of matrix A
+print(A_inv)
+```
+### Application in Data Analysis:
+- **Linear Regression:** Solve for model coefficients using matrix multiplication (normal equation).
+
+```python
+X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])  # Feature matrix
+y = np.dot(X, np.array([1, 2])) + 3  # Target variable
+theta = np.linalg.inv(X.T @ X) @ X.T @ y  # Normal equation solution
+print(theta)
+```
+- **Data Transformation:** Matrices represent data transformations, like scaling or rotating data.
+
+
 
 ## Conclusion
 Linear algebra provides essential tools for manipulating, transforming, and analyzing data. From simple operations like matrix multiplication to complex methods like PCA and SVD, these concepts are widely applied in data analysis and machine learning. Understanding and using these operations enables efficient data manipulation, transformation, and feature extraction, which are central to the data science workflow.
