@@ -1,4 +1,4 @@
-# Applied Linear Algebra in Data Analysis: A Practical Guid
+# Applied Linear Algebra in Data Analysis: A Practical Guide
 
 The primary motivation behind establishing this repository was to disseminate knowledge about Linear Algebra through Python.
 
@@ -15,9 +15,9 @@ Vectors represent data points, feature sets, or results in many data analysis ta
 
 ### Operations:
 - **Vector Addition**: Combine two vectors element-wise.
-  ```python
-  import numpy as np
 
+```python
+  import numpy as np
   v1 = np.array([1, 2, 3])
   v2 = np.array([4, 5, 6])
   result = v1 + v2  # [5, 7, 9]
