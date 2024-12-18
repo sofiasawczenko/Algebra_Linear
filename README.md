@@ -41,7 +41,7 @@ print(norm_v1)
 ## 2. Matrices
 Matrices are used to store data and perform transformations. Each row typically represents a data point, and each column represents a feature.
 
-### **Operations:**
+### Operations:
 - **Matrix Multiplication:** Multiply two matrices (e.g., dataset by weights in machine learning).
 
 ```python
@@ -73,6 +73,47 @@ print(theta)
 ```
 - **Data Transformation:** Matrices represent data transformations, like scaling or rotating data.
 
+## 3. Eigenvalues and Eigenvectors
+Eigenvalues and eigenvectors help identify the directions of maximum variance in datasets, especially in dimensionality reduction techniques.
+
+### Operations:
+- **Eigen Decomposition:** Compute eigenvalues and eigenvectors of a covariance matrix.
+```python
+covariance_matrix = np.cov(X.T)  # Covariance matrix of features
+eigenvalues, eigenvectors = np.linalg.eig(covariance_matrix)
+print("Eigenvalues:", eigenvalues)
+print("Eigenvectors:", eigenvectors)
+```
+- **Application in Data Analysis:**
+Principal Component Analysis (PCA): Reducing the dimensionality of data while preserving as much variance as possible.
+```python
+from sklearn.decomposition import PCA
+```
+
+pca = PCA(n_components=2)
+X_reduced = pca.fit_transform(X)  # Reduce features to 2 components
+print(X_reduced)
+
+## 4. Singular Value Decomposition (SVD)
+SVD is a matrix factorization technique commonly used in dimensionality reduction and recommendation systems.
+
+### Operations:
+SVD: Decompose a matrix into three components (U, Σ, V).
+```python
+U, S, Vt = np.linalg.svd(X, full_matrices=False)  # Singular Value Decomposition
+print("U:", U)
+print("S:", S)
+print("Vt:", Vt)
+```
+- **Application in Data Analysis:**
+Latent Semantic Analysis (LSA): In text mining, SVD is used to reduce the dimensionality of term-document matrices.
+```python
+from sklearn.decomposition import TruncatedSVD
+```
+
+svd = TruncatedSVD(n_components=2)
+reduced_matrix = svd.fit_transform(X)  # Reduce the matrix using SVD
+print(reduced_matrix)
 
 
 ## Conclusion
